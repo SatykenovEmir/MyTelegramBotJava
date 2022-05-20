@@ -2,9 +2,16 @@ package com.example.mytelegrambot;
 
 
 import com.example.mytelegrambot.bots.Buttons;
+import com.example.mytelegrambot.models.Role;
+import com.example.mytelegrambot.models.TgUser;
+import com.example.mytelegrambot.models.repos.TaskRepository;
+import com.example.mytelegrambot.models.repos.UserRepository;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
@@ -22,6 +29,26 @@ import java.util.Optional;
 
 @SpringBootApplication
 public class MyTelegramBotApplication {
+
+    @Autowired
+    private TaskRepository taskRepository;
+    @Autowired
+    private UserRepository userRepository;
+
+    @Bean
+    public CommandLineRunner bootstrap() {
+        return new CommandLineRunner() {
+            @Override
+            public void run(String... args) throws Exception {
+                TgUser tgUser = new TgUser();
+                tgUser.setId(620628187L);
+                tgUser.setFullName("Mr.Javlon");
+                tgUser.setRole(Role.ROLE_ADMIN);
+
+                userRepository.save(tgUser);
+            }
+        };
+    }
 
     public static void main(String[] args) throws TelegramApiException {
         SpringApplication.run(MyTelegramBotApplication.class, args);
