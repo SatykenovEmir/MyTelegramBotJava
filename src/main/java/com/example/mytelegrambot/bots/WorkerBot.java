@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-@Component
 public class WorkerBot extends TelegramLongPollingBot {
     @Override
     public String getBotUsername() {
