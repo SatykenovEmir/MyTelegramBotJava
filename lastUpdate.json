@@ -1,0 +1,44 @@
+{
+  "update_id" : 372802964,
+  "callback_query" : {
+    "id" : "5673734883064005497",
+    "from" : {
+      "id" : 1321019344,
+      "first_name" : "Aidyn",
+      "is_bot" : false,
+      "last_name" : "Mametov",
+      "language_code" : "ru"
+    },
+    "message" : {
+      "message_id" : 501,
+      "from" : {
+        "id" : 5397233464,
+        "first_name" : "sca-19b",
+        "is_bot" : true,
+        "username" : "sca19b_bot"
+      },
+      "date" : 1652872741,
+      "chat" : {
+        "id" : 1321019344,
+        "type" : "private",
+        "first_name" : "Aidyn",
+        "last_name" : "Mametov"
+      },
+      "text" : "Who are you?",
+      "reply_markup" : {
+        "inline_keyboard" : [ [ {
+          "text" : "Admin",
+          "callback_data" : "AdminAdmin"
+        } ], [ {
+          "text" : "Moderator",
+          "callback_data" : "AdminModerator"
+        } ], [ {
+          "text" : "Worker",
+          "callback_data" : "AdminWorker"
+        } ] ]
+      }
+    },
+    "data" : "AdminWorker",
+    "chat_instance" : "400606738610600339"
+  }
+}
